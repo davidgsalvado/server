@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    url: @testDataSource.url@
+    username: @testDataSource.user@
+    password: @testDataSource.password@
+    max-active: 1
+    max-idle: 1
+project:
+  test:
+    database: osmservertest
+    host: localhost
+    port: 5432
+    user: david
+    password: password
+    taskString: SELECT node, way{\n 
+                          name:es, name => name,\n 
+                          addr:city, Santiago de Compostela => city,\n 
+                          addr:street => street,\n 
+                          ST_CENTROID(geom) => location\n 
+                      }\n
+                      FROM (amenity=hospital OR amenity=clinic) TO Hospital \n
+                      WHERE BBOX=(42.84866, -8.59242, 42.88672, -8.50325
+    taskCancelString: SELECT node, way{\n
+        name:es, name => name,\n
+        addr:city, Santiago de Compostela => city,\n
+        addr:street => street,\n
+        ST_CENTROID(geom) => location\n
+      }\n
+      FROM (amenity=hospital OR amenity=clinic) TO Hospital \n
+      WHERE BBOX=(42.84866, -8.59242, 42.88672, -8.50325\n \n
+      SELECT way {\n
+        name, Nombre => name,\n 
+        website => web,\n 
+        addr:street => street,\n 
+        addr:city => city,\n 
+        toBoolean(smoking) => smoke,\n 
+        ST_CENTROID(geom) => location\n 
+      }\n 
+      FROM (amenity=\bar\) TO Cafeteria\n 
+      WHERE BBOX=(42.84866, -8.59242, 42.88672, -8.50325)
